@@ -33,3 +33,65 @@
         </script>
     </body>
 </html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+
+    <label for="bil1">Bilangan 1:</label>
+    <input type="text" id="bil1">
+    
+    <label for="operator">Pilih Operator:</label>
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <label for="bil2">Bilangan 2:</label>
+    <input type="text" id="bil2">
+
+    <button onclick="hitungHasil()">Hitung</button>
+
+    <p>Hasil: <span id="hasil"></span></p>
+
+    <script>
+        function hitungHasil() {
+            // Mendapatkan bilangan 1 dan bilangan 2 dari input
+            var bilangan1 = parseFloat(document.getElementById("bil1").value);
+            var bilangan2 = parseFloat(document.getElementById("bil2").value);
+            
+            // Mendapatkan operator yang dipilih
+            var operator = document.getElementById("operator").value;
+            
+            // Inisialisasi variabel hasil dengan nilai default
+            var hasil = 0;
+
+            // Melakukan operasi sesuai dengan operator yang dipilih
+            if (operator === "+") {
+                hasil = bilangan1 + bilangan2;
+            } else if (operator === "-") {
+                hasil = bilangan1 - bilangan2;
+            } else if (operator === "*") {
+                hasil = bilangan1 * bilangan2;
+            } else if (operator === "/") {
+                if (bilangan2 !== 0) {
+                    hasil = bilangan1 / bilangan2;
+                } else {
+                    alert("Tidak bisa membagi dengan 0");
+                }
+            }
+
+            // Menampilkan hasil operasi pada halaman
+            document.getElementById("hasil").textContent = hasil;
+        }
+    </script>
+</body>
+</html>
+
